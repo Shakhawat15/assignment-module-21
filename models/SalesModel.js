@@ -4,6 +4,7 @@ const salesSchema = new mongoose.Schema({
     product: String,
     quantity: Number,
     price: Number,
+    department: String,
     date: Date
 }, {versionKey: false});
 

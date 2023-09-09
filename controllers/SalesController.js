@@ -109,3 +109,20 @@ exports.highestQuantitySold = async (req, res) => {
         return res.status(500).json({ error: true, message: 'Something wrong!' });
     }
 }
+
+exports.departmentSalaryExpense = async (req, res) => {
+    try {
+        const departmentSalaryExpense = await Sales.aggregate([
+            {
+                $group: {
+                    _id: '$department',
+                    totalSalaryExpense: { $sum: { $multiply: ['$quantity', '$price'] } },
+                },
+            },
+        ]);
+
+        return res.status(200).json({ success: true, message: 'Get the total revenue', data: departmentSalaryExpense });
+    } catch (e) {
+        return res.status(500).json({ error: true, message: 'Something wrong!' });
+    }
+}

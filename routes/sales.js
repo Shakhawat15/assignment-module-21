@@ -8,5 +8,6 @@ router.get('/top-products', SalesController.topProduct);
 router.get('/average-price', SalesController.averagePrice);
 router.get('/revenue-by-month', SalesController.revenueByMonth);
 router.get('/highest-quantity-sold', SalesController.highestQuantitySold);
+router.get('/department-salary-expense', SalesController.departmentSalaryExpense);
 
 module.exports = router;
